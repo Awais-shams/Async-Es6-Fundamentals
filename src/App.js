@@ -6,7 +6,7 @@ import FetchApi from './components/fetch-api/FetchApi';
 function App() {
   return (
     <div className="App">
-      <h1>Asynchronous JavaScript Fundamentals</h1>
+      <h1>Asynchronous and ES6 JavaScript Fundamentals</h1>
       <FetchApi/>
     </div>
   );
