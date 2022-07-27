@@ -11,9 +11,9 @@ const FetchApi = () => {
   useEffect(()=>{
     fetch("https://jsonplaceholder.typicode.com/users")
     .then((response)=>response.json())
-    .then((data)=>{
-        setData(data)
-        console.log(data)
+    .then((message)=>{
+        setData(message)
+        console.log(message)
     })
     .catch((err)=>{
         console.log(err);

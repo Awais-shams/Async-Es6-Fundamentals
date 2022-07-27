@@ -2,6 +2,7 @@ import './App.css';
 
 // components
 import FetchApi from './components/fetch-api/FetchApi';
+import Chaining from './components/chaining-promise/Chaining';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <h1>Asynchronous and ES6 JavaScript Fundamentals</h1>
       <h6>Deployed On Vercel</h6>
       <FetchApi/>
+      <Chaining/>
     </div>
   );
 }
