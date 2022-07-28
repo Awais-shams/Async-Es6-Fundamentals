@@ -5,22 +5,18 @@ import { useState,useEffect } from 'react'
 const Chaining = () => {
 
    
-    // const [data,setData]=useState([])
-    // const [data1,setData1]=useState([])
-   async function chainingData(){
+    const [data,setData]=useState([])
+    const [data1,setData1]=useState([])
+    function chainingData(){
 
-    fetch("https://jsonplaceholder.typicode.com/users").then((res)=>{
-        let message= res.json()
-        console.log("awaos",message)
-                return fetch(`https://jsonplaceholder.typicode.com/comments/${message.id}`)
-    });
-
-  
-    // chain1.then((newRes)=>{
-    //     return fetch(`https://jsonplaceholder.typicode.com/comments/${newRes.id}`)
-    // }).then((newRes2)=>newRes2.json()).then((data)=>{
-    //     console.log(data)
-    // })
+    fetch("https://jsonplaceholder.typicode.com/posts").then((response)=>response.json()).then((res)=>{
+        setData(res)
+        console.log(res)
+        return fetch(`https://jsonplaceholder.typicode.com/posts/${res[1].id}/comments`).then((response2)=>response2.json()).then((res2)=>{
+          setData1(res2)
+          console.log(res2)
+        })
+    })
    
    }
    
@@ -30,7 +26,16 @@ chainingData()
    },[])
 
   return (
-    <div>Chaining</div>
+    <div>
+
+      <h1>Chaining</h1>
+      {
+        data1.map((items,index)=>{
+          return <h1 key={index}>{items.name}</h1>
+        })
+      }
+
+    </div>
   )
 }
 
